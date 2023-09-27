@@ -13,12 +13,6 @@ const loginUser = async (e) => {
   getInputValues();
   try {
     const response = await axios.post("../../../login", objectToSend);
-    swal({
-      title: "Bienvenido",
-      text: "",
-      icon: "success",
-      confirmButtonText: "Ok",
-    });
     redirect()
   } catch (error) {
     console.log(error.message)

@@ -58,59 +58,59 @@
 
 // CLASE 10
 // preguntamos la edad
-let edadUsuario = parseInt(prompt("¿Cual es tu edad?"));
+// let edadUsuario = parseInt(prompt("¿Cual es tu edad?"));
 // seleccionamos los botones 
-let botones = document.querySelectorAll("button");
+// let botones = document.querySelectorAll("button");
 
 // accion que realiza si el usuario es menor ( usuario < 18) 
-if (edadUsuario < 18) {
-  swal(
-    "Advertencia",
-    "Al ser menor de edad no vas a poder comprar Tickets",
-    "warning"
-  );
-  for (let i = 0; i < botones.length; i++) {
-    botones[i].setAttribute("disabled", "disabled");
-    botones[i].style.backgroundColor = "gray";
-    botones[i].style.cursor = "default";
-  }
-}
+// if (edadUsuario < 18) {
+//   swal(
+//     "Advertencia",
+//     "Al ser menor de edad no vas a poder comprar Tickets",
+//     "warning"
+//   );
+//   for (let i = 0; i < botones.length; i++) {
+//     botones[i].setAttribute("disabled", "disabled");
+//     botones[i].style.backgroundColor = "gray";
+//     botones[i].style.cursor = "default";
+//   }
+// }
 
 // CLASE 11
 
-let tickets = {
-  BuenosAires: 0,
-  Cordoba: 1,
-  Mendoza: 100,
-  Jujuy: 80,
-  SanPablo: 12,
-};
+// let tickets = {
+//   BuenosAires: 0,
+//   Cordoba: 1,
+//   Mendoza: 100,
+//   Jujuy: 80,
+//   SanPablo: 12,
+// };
 
-function getTickets(place) {
- disableSoldOutButtons(tickets);
-  if (tickets[place] > 0) {
-    swal("Sold!", `You have tickets to the ${place} concert`, "success");
-    tickets[place]-- 
-    if (tickets[place] == 0) {
-      disableSoldOutButtons(place);
-    }
-  } else {
-    swal(
-      "Oh no!",
-      `You are outta luck!, there are no more tickets for ${place}`,
-      "info"
-    );
-  }
-}
+// function getTickets(place) {
+//  disableSoldOutButtons(tickets);
+//   if (tickets[place] > 0) {
+//     swal("Sold!", `You have tickets to the ${place} concert`, "success");
+//     tickets[place]-- 
+//     if (tickets[place] == 0) {
+//       disableSoldOutButtons(place);
+//     }
+//   } else {
+//     swal(
+//       "Oh no!",
+//       `You are outta luck!, there are no more tickets for ${place}`,
+//       "info"
+//     );
+//   }
+// }
 
-function disableSoldOutButtons(tickets) {
-  for (const ciudad in tickets) {
-    if (tickets[ciudad] == 0) {
-      let boton = document.querySelector(`#${ciudad}`);
-      boton.textContent = "Sold Out";
-    }
-  }
-}
+// function disableSoldOutButtons(tickets) {
+//   for (const ciudad in tickets) {
+//     if (tickets[ciudad] == 0) {
+//       let boton = document.querySelector(`#${ciudad}`);
+//       boton.textContent = "Sold Out";
+//     }
+//   }
+// }
 
 
 

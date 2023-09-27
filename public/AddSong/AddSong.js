@@ -1,7 +1,11 @@
+// import { logOut } from "../utils/utils.js"
+
+const logOutButton = document.querySelector("#logout")
 const query = window.location.search.split("=");
 const idAlbum = query[1];
 let album;
 const agregarSong = document.querySelector("#agregar");
+
 const redirect = (id) => {
   window.location.href = `../Album/Album.html?album=${id}`;
 };
@@ -40,9 +44,11 @@ getAlbum();
 const addSong = async (e) => {
   e.preventDefault();
   const objectToSend = getInputValues();
+ 
   try {
     await axios.put(`../../../song/${idAlbum}`, objectToSend);
     await swal("cancion agregada correctamente");
+    window.location.href = "../index.html"
   } catch (error) {
     swal("Error al agregar la cancion");
   }
@@ -51,3 +57,7 @@ const addSong = async (e) => {
 agregarSong.addEventListener("click", (e) => {
   addSong(e);
 });
+
+logOutButton.addEventListener("click", () => {
+  logOut()
+})

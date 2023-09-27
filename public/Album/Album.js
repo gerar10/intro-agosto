@@ -1,8 +1,11 @@
+import  {logOut}  from "../utils/utils.js";
+
 const titleAlbum = document.querySelector("#titleAlbum");
 const descriptionAlbum = document.querySelector("#descriptionAlbum");
 const ul = document.querySelector(".playlist");
 const editAlbum = document.querySelector("#editAlbum");
 const addSongs = document.querySelector("#addSongs");
+const buttonLogout = document.querySelector("#logOut")
 
 const query = window.location.search.split("=");
 const idAlbum = query[1];
@@ -127,3 +130,9 @@ const deleteSong = async (album, cancion) => {
     console.log(error);
   }
 };
+
+// como ya tenemos importada la funcion de logOut, al boton de logout le agregamos un evento click para que la ejecute
+buttonLogout.addEventListener("click", () => {
+  logOut()
+  window.location.href = `../Login/index.html`;
+})
