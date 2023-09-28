@@ -30,6 +30,8 @@ app.use(
   })
 );
 
+app.use("/health", (req, res) => res.sendStatus(200));
+
 app.use("/", routes);
 
 const connectMongo = async () => {
