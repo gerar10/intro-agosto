@@ -1,4 +1,6 @@
-// import { logOut } from "../utils/utils.js"
+import { logOut } from "../utils/utils.js"
+
+
 
 const logOutButton = document.querySelector("#logout")
 const query = window.location.search.split("=");
@@ -47,7 +49,11 @@ const addSong = async (e) => {
  
   try {
     await axios.put(`../../../song/${idAlbum}`, objectToSend);
-    await swal("cancion agregada correctamente");
+    await swal({
+      title: "Canción agregada correctamente!",
+      text: `Canción: ${objectToSend.titulo}`,
+      icon: "success"
+    });
     window.location.href = "../index.html"
   } catch (error) {
     swal("Error al agregar la cancion");
@@ -60,4 +66,5 @@ agregarSong.addEventListener("click", (e) => {
 
 logOutButton.addEventListener("click", () => {
   logOut()
+  window.location.href = "../Login/index.html"
 })

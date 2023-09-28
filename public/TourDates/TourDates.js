@@ -118,3 +118,16 @@
 //   let boton = document.querySelector(`#${place}`);
 //   boton.textContent = " Sold Out";
 // }
+
+const username = document.querySelector("#welcome")
+
+const onLoad = async () => {
+    try {
+      const response = await axios.get("../../../../me");
+      username.textContent = `Hola ${response.data.nombre} ${response.data.apellido}, estas son las fechas disponibles para tu banda`
+    } catch (error) {
+      window.location.href = "../Login/index.html";
+    }
+  };
+
+onLoad()  

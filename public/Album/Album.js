@@ -113,7 +113,10 @@ const deleteSong = async (album, cancion) => {
     await axios.put(
       `../../../song/delete/${album}?idSong=${cancion}`
     );
-    await swal("cancion eliminada correctamente");
+    await     swal({
+      title: "Canción eliminada correctamente",
+      icon: "success",
+    });
     ul.innerHTML = ""; // limpia la lista actual
     const response = await axios.get(`../../../album/${idAlbum}`);
     const canciones = response.data.canciones;

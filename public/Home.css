@@ -52,8 +52,9 @@ h2 {
   transition: 0.3s;
 }
 
-.sidebar-menu a:hover {
+ul li:hover {
   background-color: #555;
+  cursor: pointer;
 }
 
 .content {
@@ -84,6 +85,7 @@ h2 {
   height: 300px;
   border: 6px solid #333;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .favoritos {
@@ -103,4 +105,5 @@ h2 {
   top: 145px;
   right: 35px;
   font-size: 24px;
+  cursor: pointer;
 }

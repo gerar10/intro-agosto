@@ -1,15 +1,17 @@
 const express = require("express");
 const app = express();
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv")
-dotenv.config()
-const PORT = process.env.PORT
-const password = process.env.PASSWORD_MONGO
-const dbUser = process.env.USER_MONGO 
-const url =
-  `mongodb+srv://${dbUser}:${password}@cluster0.kttc6we.mongodb.net/?retryWrites=true&w=majority`;
+
+const dotenv = require("dotenv");
+dotenv.config();
+
+const PORT = process.env.PORT;
+const password = process.env.PASSWORD_MONGO;
+const dbUser = process.env.USER_MONGO;
+
+const url = `mongodb+srv://${dbUser}:${password}@cluster0.kttc6we.mongodb.net/?retryWrites=true&w=majority`;
 
 const routes = require("./routes/index");
 
@@ -25,7 +27,7 @@ app.use(
         res.setHeader("Content-Type", "application/javascript");
       }
     },
-  }),
+  })
 );
 
 app.use("/", routes);

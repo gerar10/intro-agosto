@@ -1,7 +1,6 @@
 import { onLoad } from "./utils/utils.js";
 import { logOut } from "./utils/utils.js";
 
-
 // const favoriteRecords = ["disco2"];
 
 // function addFavorites(favorites) {
@@ -72,7 +71,10 @@ getAlbums();
 const deleteAlbum = async (album) => {
   try {
     await axios.delete(`../../album/${album}`);
-    await swal("album eliminado correctamente");
+    swal({
+      title: "Album eliminado correctamente",
+      icon: "success"
+    });
     const albums = document.querySelectorAll(".albums-individual");
     albums.forEach((album) => album.remove());
     const response = await axios.get("../../album/todos");
@@ -88,8 +90,6 @@ const deleteAlbum = async (album) => {
 
 const buttonLogout = document.querySelector("#logout");
 
-
-
 buttonLogout.addEventListener("click", () => {
   logOut();
   window.location.href = `../Login/index.html`;
@@ -97,7 +97,10 @@ buttonLogout.addEventListener("click", () => {
 
 // Funcion onLoad que vamos a ejecutar ni bien se carga la pagina.
 const username = document.querySelector("#username");
-
-
+let user = "";
+const tourDates = document.querySelector("#tour-dates");
+tourDates.addEventListener("click", () => {
+  window.location.href = `./TourDates/TourDates.html?user=${user}`;
+});
 
 onLoad();

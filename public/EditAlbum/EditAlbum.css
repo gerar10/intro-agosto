@@ -43,6 +43,7 @@ h2 {
 .sidebar-menu li {
   padding: 10px;
   text-align: center;
+  cursor: pointer;
 }
 
 .sidebar-menu a {
@@ -52,7 +53,7 @@ h2 {
   transition: 0.3s;
 }
 
-.sidebar-menu a:hover {
+ul li:hover {
   background-color: #555;
 }
 
@@ -114,6 +115,9 @@ input[type="url"]
 textarea {
     height: 200px;
     width: 600px;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    font-size: 14 px;
 }
 
 .button-group {

@@ -55,8 +55,9 @@ h2 {
   transition: 0.3s;
 }
 
-.sidebar-menu a:hover {
+.sidebar-menu li:hover {
   background-color: #555;
+  cursor: pointer;
 }
 
 .content {
