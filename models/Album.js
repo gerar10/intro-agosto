@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+
+// Estos son los modelos que estaban en pledu, no obstante ustedes lo pueden modificar para guardar mas info si precisan otros campos
 const Album = new mongoose.Schema({
   titulo: { type: String, required: [true, "el titulo es requerido"] },
   descripcion: {

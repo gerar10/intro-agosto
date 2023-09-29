@@ -5,13 +5,18 @@ const Album = require("../models/Album");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+// lo usamos en la función de hasPassword
 const saltRounds = 10;
+// lo usamos en la función de crear el token
 const secret = "milanesa";
 
+// función de hasheo de contraseña
 const hashPassword = async (password) => {
   const hash = await bcrypt.hash(password, saltRounds);
   return hash;
 };
+
+// Las rutas estan en un solo archivo, recuerden que las pueden separar en otros archivos utilizando el Router
 
 // Ruta para crear un usuario
 router.post("/createuser", async (req, res) => {
@@ -44,6 +49,7 @@ router.post("/login", async (req, res) => {
     const match = bcrypt.compare(password, user.password);
     const payload = { email, nombre: user.nombre, apellido: user.apellido };
     if (match) {
+      // usamos el metodo de la libreria JWT para generar el token (credencial digital)
       const token = jwt.sign(payload, secret);
       res.cookie("token", token);
       res.status(200).send(payload);
@@ -63,7 +69,7 @@ router.post("/logout", async (req, res) => {
   }
 });
 
-// Ruta /me para restringir el acceso a quienes no se loguean
+// Ruta "/me" para restringir el acceso a quienes no se loguean
 router.get("/me", (req, res) => {
   try {
     const token = req.cookies.token;
