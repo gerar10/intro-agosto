@@ -66,3 +66,18 @@ logOutButton.addEventListener("click", () => {
   logOut();
   window.location.href = "../Login/index.html";
 });
+
+
+const username = document.querySelector("#welcome");
+
+const onLoad = async () => {
+  try {
+    const response = await axios.get("../../../../me");
+    username.textContent = `${response.data.nombre} ${response.data.apellido}`
+  } catch (error) {
+    console.log(error);
+    window.location.href = "../Login/index.html";
+  }
+};
+
+onLoad()
