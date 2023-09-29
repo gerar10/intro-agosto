@@ -1,11 +1,11 @@
-import  {logOut}  from "../utils/utils.js";
+import { logOut } from "../utils/utils.js";
 
-const titleAlbum = document.querySelector("#titleAlbum");
-const descriptionAlbum = document.querySelector("#descriptionAlbum");
+// const titleAlbum = document.querySelector("#titleAlbum");
+// const descriptionAlbum = document.querySelector("#descriptionAlbum");
 const ul = document.querySelector(".playlist");
 const editAlbum = document.querySelector("#editAlbum");
 const addSongs = document.querySelector("#addSongs");
-const buttonLogout = document.querySelector("#logOut")
+const buttonLogout = document.querySelector("#logOut");
 
 const query = window.location.search.split("=");
 const idAlbum = query[1];
@@ -85,8 +85,7 @@ function renderSongs(album) {
   });
 }
 
-
-
+// Hacemos el pedido a la base de datos para traernos los albums
 const getAlbum = async () => {
   try {
     const response = await axios.get(`../../../album/${idAlbum}`);
@@ -108,12 +107,11 @@ const getAlbum = async () => {
 
 getAlbum();
 
+// Craamos funcion para eliminar una canción y le agregamos el addEventListener al icono del tachito
 const deleteSong = async (album, cancion) => {
   try {
-    await axios.put(
-      `../../../song/delete/${album}?idSong=${cancion}`
-    );
-    await     swal({
+    await axios.put(`../../../song/delete/${album}?idSong=${cancion}`);
+    await swal({
       title: "Canción eliminada correctamente",
       icon: "success",
     });
@@ -136,6 +134,6 @@ const deleteSong = async (album, cancion) => {
 
 // como ya tenemos importada la funcion de logOut, al boton de logout le agregamos un evento click para que la ejecute
 buttonLogout.addEventListener("click", () => {
-  logOut()
+  logOut();
   window.location.href = `../Login/index.html`;
-})
+});

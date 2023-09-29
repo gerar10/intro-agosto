@@ -5,19 +5,19 @@ function getInputValues() {
 }
 
 const redirect = () => {
-    window.location.href = `../../`;
-  };
+  window.location.href = `../../`;
+};
 
 const loginUser = async (e) => {
   e.preventDefault();
   getInputValues();
   try {
     const response = await axios.post("../../../login", objectToSend);
-    redirect()
+    redirect();
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 };
 
-const loginButton = document.querySelector("#login")
-loginButton.addEventListener("click", (e) => loginUser(e))
+const loginButton = document.querySelector("#login");
+loginButton.addEventListener("click", (e) => loginUser(e));

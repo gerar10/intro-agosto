@@ -1,27 +1,64 @@
-# Musica
+# Proyecto final - Mi banda de música
 
-![logo-p5](https://i.imgur.com/zuBSE5n.jpg)
+Proyecto realizado en el marco educativo del curso Fullstack developer de Plataforma 5.
 
-## 📝 Descripción del Proyecto
+## Descripción general del proyecto 🚀
 
-Proyecto de banda musical generado en 2023
+El proyecto esta basado en mi banda de música favorita, The Rolling Stones.   
+Tiene la finalidad de que los usuarios se puedan registrar, y utilizar la aplicación para poder escuchar musica,   
+ver videos, y podes tener informacón de los próximos recitales 
 
-## 🔨 Funcionalidades 
+Mira **Deployment** para conocer como desplegar el proyecto.
 
-- **Funcionalidad 1** : agregar Album
-- **Funcionalidad 2** : escuchar musica 
+Link al Deplyment
+
+### Pre-requisitos 📋
 
 
-## 🔧 Instalación 
+Es necesario tener Node.js para ejecutar de manera local el proyecto 
+Es necesatirio tener una base de datos en MongoDB
 
-Paso a paso de cómo descargar el repositorio y levantarlo. Ejemplo: 
+```
+USER_MONGO=
+PASSWORD_MONGO=
+PORT=
+```
 
-1- Clonar el repositorio.
+### Instalación 🔧
 
-2- Instalar dependencias corriendo el comando _npm i_.
+Clonar el repositorio  
 
-3- Correr el proyecto con : _npm start_.
+Ejecutar el comando npm install  
 
-##  🖊️  Autores y contactos
+Deberas tenes una base de datos en mongodb  
 
-## 🎁 Agradecimientos 
+Configurar las variables de entorno en un archivo .env: 
+
+```
+USER_MONGO=
+PASSWORD_MONGO=
+PORT=
+```
+
+## Funcionalidades principales ⚙️
+
+Los usuario se pueden registrar para tener su propia cuenta personal:  
+Tienen la posibilidad de agregar, actualiza, eliminar album de bandas.   
+A su vez pueden agregar canciones con sus respectivos videos, editar y eliminar las mismas.   
+Pueden comprar tickets para los próximos recitales. 
+
+## Autores ✒️
+
+_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
+
+* **Alan Robert** - *Developer* 
+* **Daniela Quinteros** - *Developer* 
+* **Facundo Garay** - *Developer* 
+* **Hernan Marante** - *Developer* 
+* **Lucas Pompillo** - *Developer* 
+* **Jonathan Vazquez** - *Developer* 
+* **Ramiro Merlo** - *Developer* 
+
+## Expresiones de Gratitud 🎁
+
+* Muchas gracias a todos los alumnos de la comision Agosto-tarde por participar de las clases, el compromiso, y sobre todo por las ganas de superarse y seguir creciendo 📢

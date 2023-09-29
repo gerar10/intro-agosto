@@ -73,7 +73,7 @@ const deleteAlbum = async (album) => {
     await axios.delete(`../../album/${album}`);
     swal({
       title: "Album eliminado correctamente",
-      icon: "success"
+      icon: "success",
     });
     const albums = document.querySelectorAll(".albums-individual");
     albums.forEach((album) => album.remove());

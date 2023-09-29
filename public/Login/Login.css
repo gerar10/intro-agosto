@@ -6,8 +6,6 @@ body {
   background-repeat: no-repeat;
 }
 
-
-
 form {
   margin-top: 10px;
 }
@@ -71,4 +69,22 @@ p a {
 
 p a:hover {
   color: #0056b3;
+}
+
+/* La aplicacion aun no es responsive, aplicando las media query lo pueden hacer adaptativo para celulares u otros dispositivos */
+@media screen and (max-width: 600px) {
+  body {
+    background-image: url("https://i.pinimg.com/originals/e6/15/db/e615dbb93740372c98d75419ec0b6525.jpg");
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #form-container {
+    margin-bottom: 25%;
+    width: 100%;
+    position: relative;
+    top: 370px;
+  }
 }

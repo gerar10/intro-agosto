@@ -59,10 +59,10 @@
 // CLASE 10
 // preguntamos la edad
 // let edadUsuario = parseInt(prompt("¿Cual es tu edad?"));
-// seleccionamos los botones 
+// seleccionamos los botones
 // let botones = document.querySelectorAll("button");
 
-// accion que realiza si el usuario es menor ( usuario < 18) 
+// accion que realiza si el usuario es menor ( usuario < 18)
 // if (edadUsuario < 18) {
 //   swal(
 //     "Advertencia",
@@ -90,7 +90,7 @@
 //  disableSoldOutButtons(tickets);
 //   if (tickets[place] > 0) {
 //     swal("Sold!", `You have tickets to the ${place} concert`, "success");
-//     tickets[place]-- 
+//     tickets[place]--
 //     if (tickets[place] == 0) {
 //       disableSoldOutButtons(place);
 //     }
@@ -112,22 +112,20 @@
 //   }
 // }
 
-
-
 // function disableSoldOutButtons(place) {
 //   let boton = document.querySelector(`#${place}`);
 //   boton.textContent = " Sold Out";
 // }
 
-const username = document.querySelector("#welcome")
+const username = document.querySelector("#welcome");
 
 const onLoad = async () => {
-    try {
-      const response = await axios.get("../../../../me");
-      username.textContent = `Hola ${response.data.nombre} ${response.data.apellido}, estas son las fechas disponibles para tu banda`
-    } catch (error) {
-      window.location.href = "../Login/index.html";
-    }
-  };
+  try {
+    const response = await axios.get("../../../../me");
+    username.textContent = `Hola ${response.data.nombre} ${response.data.apellido}, estas son las fechas disponibles para tu banda`;
+  } catch (error) {
+    window.location.href = "../Login/index.html";
+  }
+};
 
-onLoad()  
+onLoad();

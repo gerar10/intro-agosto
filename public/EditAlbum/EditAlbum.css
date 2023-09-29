@@ -103,8 +103,7 @@ label {
 }
 
 input[type="text"],
-input[type="url"]
- {
+input[type="url"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -113,11 +112,11 @@ input[type="url"]
 }
 
 textarea {
-    height: 200px;
-    width: 600px;
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    font-size: 14 px;
+  height: 200px;
+  width: 600px;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  font-size: 14 px;
 }
 
 .button-group {

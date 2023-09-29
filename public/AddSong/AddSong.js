@@ -1,8 +1,6 @@
-import { logOut } from "../utils/utils.js"
+import { logOut } from "../utils/utils.js";
 
-
-
-const logOutButton = document.querySelector("#logout")
+const logOutButton = document.querySelector("#logout");
 const query = window.location.search.split("=");
 const idAlbum = query[1];
 let album;
@@ -15,7 +13,7 @@ const redirect = (id) => {
 // Generamos una funcion para guardar los valores que ingresa el usuario
 function getInputValues() {
   // Obtener los input del form
-  const titleInput = document.getElementById("title"); 
+  const titleInput = document.getElementById("title");
   const duracionInput = document.getElementById("duration");
   const linkInput = document.getElementById("link");
 
@@ -46,15 +44,15 @@ getAlbum();
 const addSong = async (e) => {
   e.preventDefault();
   const objectToSend = getInputValues();
- 
+
   try {
     await axios.put(`../../../song/${idAlbum}`, objectToSend);
     await swal({
       title: "Canción agregada correctamente!",
       text: `Canción: ${objectToSend.titulo}`,
-      icon: "success"
+      icon: "success",
     });
-    window.location.href = "../index.html"
+    window.location.href = "../index.html";
   } catch (error) {
     swal("Error al agregar la cancion");
   }
@@ -65,6 +63,6 @@ agregarSong.addEventListener("click", (e) => {
 });
 
 logOutButton.addEventListener("click", () => {
-  logOut()
-  window.location.href = "../Login/index.html"
-})
+  logOut();
+  window.location.href = "../Login/index.html";
+});

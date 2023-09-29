@@ -3,10 +3,10 @@ const router = express.Router();
 const User = require("../models/User");
 const Album = require("../models/Album");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 
-const saltRounds = 10
-const secret = "milanesa"
+const saltRounds = 10;
+const secret = "milanesa";
 
 const hashPassword = async (password) => {
   const hash = await bcrypt.hash(password, saltRounds);
@@ -35,45 +35,44 @@ router.post("/createuser", async (req, res) => {
   }
 });
 
-// Ruta para el login 
+// Ruta para el login
 router.post("/login", async (req, res) => {
   try {
-    const email = req.body.email
-    const password = req.body.password
-    const user = await User.findOne({"email": email})
-    const match = bcrypt.compare(password, user.password)
-    const payload = { email, nombre: user.nombre, apellido: user.apellido }
+    const email = req.body.email;
+    const password = req.body.password;
+    const user = await User.findOne({ email: email });
+    const match = bcrypt.compare(password, user.password);
+    const payload = { email, nombre: user.nombre, apellido: user.apellido };
     if (match) {
-      const token = jwt.sign(payload, secret)
-      res.cookie("token", token)
-      res.status(200).send(payload)
+      const token = jwt.sign(payload, secret);
+      res.cookie("token", token);
+      res.status(200).send(payload);
     }
-
   } catch (error) {
-    res.status(401).send({message:error.message})
+    res.status(401).send({ message: error.message });
   }
-})
+});
 
-// Ruta para el logout 
+// Ruta para el logout
 router.post("/logout", async (req, res) => {
   try {
-    res.clearCookie("token")
-    res.sendStatus(204)
+    res.clearCookie("token");
+    res.sendStatus(204);
   } catch (error) {
-    res.sendStatus(500)
+    res.sendStatus(500);
   }
-})
+});
 
-// Ruta /me para restringir el acceso a quienes no se loguean 
+// Ruta /me para restringir el acceso a quienes no se loguean
 router.get("/me", (req, res) => {
   try {
-    const token = req.cookies.token
-    const payload = jwt.verify(token, secret)
-    res.send(payload)
+    const token = req.cookies.token;
+    const payload = jwt.verify(token, secret);
+    res.send(payload);
   } catch (error) {
-    res.status(401).send(error.message)
+    res.status(401).send(error.message);
   }
-})
+});
 
 // Una ruta que reciba un id por params y retorne la data del usuario nuevamente, excluyendo la contraseña.
 router.get("/usuario/:id", async (req, res) => {
