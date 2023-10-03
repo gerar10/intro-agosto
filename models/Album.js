@@ -7,7 +7,7 @@ const Album = new mongoose.Schema({
   descripcion: {
     type: String,
     required: [true, "la descripcion es requerida"],
-    min: 5,
+    min: 5, 
     max: 200,
   },
   anioLanzamiento: {

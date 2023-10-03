@@ -14,6 +14,7 @@ const dbUser = process.env.USER_MONGO;
 
 const url = `mongodb+srv://${dbUser}:${password}@cluster0.kttc6we.mongodb.net/?retryWrites=true&w=majority`;
 
+// Requerimos las rutas de la carpeta routes
 const routes = require("./routes/index");
 
 app.use(express.json());

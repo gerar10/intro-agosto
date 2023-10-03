@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+// requerimos los modelos
 const User = require("../models/User");
 const Album = require("../models/Album");
 const bcrypt = require("bcrypt");
